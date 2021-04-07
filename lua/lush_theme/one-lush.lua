@@ -93,8 +93,8 @@ local theme = lush(function()
     -- TermCursorNC { }, -- cursor in an unfocused terminal
     ErrorMsg     { fg = red.saturate(200) }, -- error messages on the command line
     VertSplit    { fg = foreground.darken(50), bg = background }, -- the column separating vertically split windows
-    -- Folded       { }, -- line used for closed folds
-    -- FoldColumn   { }, -- 'foldcolumn'
+    Folded       { fg = cyan.desaturate(60), bg = background.lighten(3)}, -- line used for closed folds
+    FoldColumn   { Folded }, -- 'foldcolumn'
     SignColumn   { }, -- column where |signs| are displayed
     IncSearch    { fg = yellow.saturate(80), bg = background.lighten(25) }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     Substitute   { fg = background, bg = yellow.saturate(150)  }, -- |:substitute| replacement text highlighting
