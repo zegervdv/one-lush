@@ -286,6 +286,9 @@ local theme = lush(function()
     diffNewFile           { fg = green },
     diffOldFile           { fg = red },
 
+    -- Ident blankline
+    IndentBlanklineChar   { fg = foreground.darken(60) },
+
   }
 end)
 
