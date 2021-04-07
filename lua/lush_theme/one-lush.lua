@@ -85,7 +85,7 @@ local theme = lush(function()
     CursorLine   { bg = background.lighten(10) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory    { fg = cyan }, -- directory names (and other special names in listings)
     DiffAdd      { fg = green }, -- diff mode: Added line |diff.txt|
-    DiffChange   { fg = blue }, -- diff mode: Changed line |diff.txt|
+    DiffChange   { fg = yellow, gui = "underline" }, -- diff mode: Changed line |diff.txt|
     DiffDelete   { fg = red }, -- diff mode: Deleted line |diff.txt|
     DiffText     { fg = orange }, -- diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer  { fg = foreground.saturate(10) }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
@@ -100,7 +100,7 @@ local theme = lush(function()
     Substitute   { fg = background, bg = yellow.saturate(150)  }, -- |:substitute| replacement text highlighting
     LineNr       { fg = foreground.darken(40) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { fg = yellow.saturate(15) }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen   { fg = blue.saturate(25) }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen   { fg = blue.saturate(25), gui = "underline" }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg      { fg = green }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea      { fg = foreground }, -- Area for messages and cmdline
     MsgSeparator { fg = background, bg = foreground }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -276,6 +276,15 @@ local theme = lush(function()
     -- TSTitle              { };    -- Text that is part of a title.
     -- TSLiteral            { };    -- Literal text.
     -- TSURI                { };    -- Any URI like a link or email.
+
+
+    -- Diff highlighting for gitcommit msg
+    diffAdded             { fg = green },
+    diffRemoved           { fg = red },
+    diffFileId            { fg = blue, gui = "underline" },
+    diffFile              { fg = cyan },
+    diffNewFile           { fg = green },
+    diffOldFile           { fg = red },
 
   }
 end)
