@@ -38,19 +38,19 @@
 --  or
 --
 --  `:lua require('lush').ify()`
-local lush = require('lush')
+local lush = require 'lush'
 local hsl = lush.hsl
 
-local background = hsl('#282c34')
-local foreground = hsl('#abb2bf')
+local background = hsl '#282c34'
+local foreground = hsl '#abb2bf'
 
-local red = hsl('#e06c75')
-local green = hsl('#98c379')
-local yellow = hsl('#e5c07b')
-local orange = hsl('#d19a66')
-local blue = hsl('#61afef')
-local purple = hsl('#c678dd')
-local cyan = hsl('#56b6c2')
+local red = hsl '#e06c75'
+local green = hsl '#98c379'
+local yellow = hsl '#e5c07b'
+local orange = hsl '#d19a66'
+local blue = hsl '#61afef'
+local purple = hsl '#c678dd'
+local cyan = hsl '#56b6c2'
 
 local error_red = red.saturate(200)
 local warning_yellow = yellow.saturate(200)
@@ -104,8 +104,9 @@ local theme = lush(function()
     NonText { fg = foreground.saturate(10) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal { fg = foreground, bg = background }, -- normal text
     NormalFloat { fg = foreground, bg = background.darken(10) }, -- Normal text in floating windows.
+    FloatBorder { fg = blue.desaturate(40), bg = NormalFloat.bg },
     NormalNC { fg = foreground.darken(10) }, -- normal text in non-current windows
-    Pmenu { fg = foreground, bg = hsl('#333841') }, -- Popup menu: normal item.
+    Pmenu { fg = foreground, bg = hsl '#333841' }, -- Popup menu: normal item.
     PmenuSel { fg = foreground.lighten(75), bg = blue }, -- Popup menu: selected item.
     PmenuSbar {}, -- Popup menu: scrollbar.
     PmenuThumb { fg = background, bg = foreground }, -- Popup menu: Thumb of the scrollbar.
@@ -113,7 +114,7 @@ local theme = lush(function()
     QuickFixLine { fg = background, bg = yellow.saturate(150) }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search { fg = background, bg = yellow.saturate(150) }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     SpecialKey { fg = cyan.saturate(35) }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-    -- SpellBad     { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise. 
+    -- SpellBad     { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
@@ -283,7 +284,6 @@ local theme = lush(function()
 
     -- Ident blankline
     IndentBlanklineChar { fg = foreground.darken(60) },
-
   }
 end)
 
