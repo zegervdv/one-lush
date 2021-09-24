@@ -200,6 +200,10 @@ local theme = lush(function()
     LspDiagnosticsVirtualTextWarning { fg = warning_yellow }, -- Used for "Warning" diagnostic virtual text
     LspDiagnosticsVirtualTextInformation { fg = info_blue }, -- Used for "Information" diagnostic virtual text
     LspDiagnosticsVirtualTextHint { fg = hint_green }, -- Used for "Hint" diagnostic virtual text
+    DiagnosticsVirtualTextError { fg = error_red }, -- Used for "Error" diagnostic virtual text
+    DiagnosticsVirtualTextWarning { fg = warning_yellow }, -- Used for "Warning" diagnostic virtual text
+    DiagnosticsVirtualTextInformation { fg = info_blue }, -- Used for "Information" diagnostic virtual text
+    DiagnosticsVirtualTextHint { fg = hint_green }, -- Used for "Hint" diagnostic virtual text
 
     -- LspDiagnosticsUnderlineError         { }, -- Used to underline "Error" diagnostics
     -- LspDiagnosticsUnderlineWarning       { }, -- Used to underline "Warning" diagnostics
@@ -215,6 +219,11 @@ local theme = lush(function()
     LspDiagnosticsSignWarning { fg = warning_yellow, bg = background }, -- Used for "Warning" signs in sign column
     LspDiagnosticsSignInformation { fg = info_blue, bg = background }, -- Used for "Information" signs in sign column
     LspDiagnosticsSignHint { fg = hint_green, bg = background }, -- Used for "Hint" signs in sign column
+
+    DiagnosticsSignError { fg = error_red, bg = background }, -- Used for "Error" signs in sign column
+    DiagnosticsSignWarning { fg = warning_yellow, bg = background }, -- Used for "Warning" signs in sign column
+    DiagnosticsSignInformation { fg = info_blue, bg = background }, -- Used for "Information" signs in sign column
+    DiagnosticsSignHint { fg = hint_green, bg = background }, -- Used for "Hint" signs in sign column
 
     -- These groups are for the neovim tree-sitter highlights.
     -- As of writing, tree-sitter support is a WIP, group names may change.
