@@ -235,28 +235,28 @@ local theme = lush(function()
     -- TSAttribute          { };    -- (unstable) TODO: docs
     -- TSBoolean            { };    -- For booleans.
     -- TSCharacter          { };    -- For characters.
-    -- TSComment            { };    -- For comment blocks.
+    TSComment { Comment }, -- For comment blocks.
     -- TSConstructor        { };    -- For constructor calls and definitions: ` { }` in Lua, and Java constructors.
     -- TSConditional        { };    -- For keywords related to conditionnals.
-    -- TSConstant           { };    -- For constants
+    TSConstant { Constant }, -- For constants
     -- TSConstBuiltin       { };    -- For constant that are built in the language: `nil` in Lua.
     -- TSConstMacro         { };    -- For constants that are defined by macros: `NULL` in C.
     -- TSError              { };    -- For syntax/parser errors.
     -- TSException          { };    -- For exception related keywords.
-    -- TSField              { };    -- For fields.
+    TSField { fg = red }, -- For fields.
     -- TSFloat              { };    -- For floats.
     -- TSFunction           { };    -- For function (calls and definitions).
     -- TSFuncBuiltin        { };    -- For builtin functions: `table.insert` in Lua.
     -- TSFuncMacro          { };    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    -- TSInclude            { };    -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    -- TSKeyword            { };    -- For keywords that don't fall in previous categories.
+    TSInclude { fg = purple }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+    TSKeyword { fg = purple }, -- For keywords that don't fall in previous categories.
     -- TSKeywordFunction    { };    -- For keywords used to define a fuction.
-    -- TSLabel              { };    -- For labels: `label:` in C and `:label:` in Lua.
+    TSLabel { fg = purple }, -- For labels: `label:` in C and `:label:` in Lua.
     -- TSMethod             { };    -- For method calls and definitions.
     -- TSNamespace          { };    -- For identifiers referring to modules and namespaces.
     -- TSNone               { };    -- TODO: docs
-    -- TSNumber             { };    -- For all numbers
-    -- TSOperator           { };    -- For any operator: `+`, but also `->` and `*` in C.
+    TSNumber { fg = orange }, -- For all numbers
+    TSOperator { fg = blue }, -- For any operator: `+`, but also `->` and `*` in C.
     -- TSParameter          { };    -- For parameters of a function.
     -- TSParameterReference { };    -- For references to parameters of a function.
     -- TSProperty           { };    -- Same as `TSField`.
@@ -268,8 +268,8 @@ local theme = lush(function()
     -- TSStringRegex        { };    -- For regexes.
     -- TSStringEscape       { };    -- For escape characters within a string.
     -- TSSymbol             { };    -- For identifiers referring to symbols or atoms.
-    -- TSType               { };    -- For types.
-    -- TSTypeBuiltin        { };    -- For builtin types.
+    TSType { fg = cyan }, -- For types.
+    TSTypeBuiltin { fg = cyan }, -- For builtin types.
     -- TSVariable           { };    -- Any variable name that does not have another highlight.
     -- TSVariableBuiltin    { };    -- Variable names that are defined by the languages, like `this` or `self`.
 
