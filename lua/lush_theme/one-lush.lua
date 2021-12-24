@@ -55,7 +55,7 @@ local cyan = hsl '#56b6c2'
 local error_red = red.saturate(200)
 local warning_yellow = yellow.saturate(200)
 local info_blue = blue.saturate(200)
-local hint_green = green.saturate(100)
+local hint_green = green.abs_saturate(15)
 
 local theme = lush(function()
   return {
