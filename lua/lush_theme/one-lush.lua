@@ -44,6 +44,7 @@ local hsl = lush.hsl
 local background = hsl '#282c34'
 local foreground = hsl '#abb2bf'
 
+local white = hsl '#ffffff'
 local red = hsl '#e06c75'
 local green = hsl '#98c379'
 local yellow = hsl '#e5c07b'
@@ -52,7 +53,7 @@ local blue = hsl '#61afef'
 local purple = hsl '#c678dd'
 local cyan = hsl '#56b6c2'
 
-local error_red = red.saturate(200)
+local error_red = hsl '#e05661'
 local warning_yellow = yellow.saturate(200)
 local info_blue = blue.saturate(200)
 local hint_green = green.abs_saturate(15)
@@ -87,7 +88,7 @@ local theme = lush(function()
     EndOfBuffer { fg = foreground.darken(60) }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     -- TermCursor   { }, -- cursor in a focused terminal
     -- TermCursorNC { }, -- cursor in an unfocused terminal
-    ErrorMsg { fg = red.saturate(200) }, -- error messages on the command line
+    ErrorMsg { fg = error_red }, -- error messages on the command line
     VertSplit { fg = foreground.darken(50), bg = background }, -- the column separating vertically split windows
     Folded { fg = cyan.desaturate(60), bg = background.lighten(3) }, -- line used for closed folds
     FoldColumn { Folded }, -- 'foldcolumn'
@@ -107,7 +108,7 @@ local theme = lush(function()
     FloatBorder { fg = blue.desaturate(40), bg = NormalFloat.bg },
     NormalNC { fg = foreground.darken(10) }, -- normal text in non-current windows
     Pmenu { fg = foreground, bg = hsl '#333841' }, -- Popup menu: normal item.
-    PmenuSel { fg = foreground.lighten(75), bg = blue }, -- Popup menu: selected item.
+    PmenuSel { fg = white, bg = blue }, -- Popup menu: selected item.
     PmenuSbar {}, -- Popup menu: scrollbar.
     PmenuThumb { fg = background, bg = foreground }, -- Popup menu: Thumb of the scrollbar.
     Question { fg = green.saturate(20) }, -- |hit-enter| prompt and yes/no questions
@@ -128,7 +129,7 @@ local theme = lush(function()
     -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg { fg = yellow.saturate(75) }, -- warning messages
     Whitespace { fg = foreground.lighten(15) }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
-    WildMenu { fg = foreground.lighten(75), bg = blue }, -- current match in 'wildmenu' completion
+    WildMenu { fg = white, bg = blue }, -- current match in 'wildmenu' completion
 
     -- These groups are not listed as default vim groups,
     -- but they are defacto standard group names for syntax highlighting.
@@ -191,34 +192,15 @@ local theme = lush(function()
     -- LspReferenceRead                     { }, -- used for highlighting "read" references
     -- LspReferenceWrite                    { }, -- used for highlighting "write" references
 
-    -- LspDiagnosticsDefaultError           { }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-    -- LspDiagnosticsDefaultWarning         { }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-    -- LspDiagnosticsDefaultInformation     { }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
-    -- LspDiagnosticsDefaultHint            { }, -- Used as the base highlight group. Other LspDiagnostic highlights link to this by default (except Underline)
+    DiagnosticError { fg = error_red },
+    DiagnosticWarn { fg = warning_yellow },
+    Diagnosticnfo { fg = info_blue },
+    DiagnosticHint { fg = hint_green },
 
-    LspDiagnosticsVirtualTextError { fg = error_red }, -- Used for "Error" diagnostic virtual text
-    LspDiagnosticsVirtualTextWarning { fg = warning_yellow }, -- Used for "Warning" diagnostic virtual text
-    LspDiagnosticsVirtualTextInformation { fg = info_blue }, -- Used for "Information" diagnostic virtual text
-    LspDiagnosticsVirtualTextHint { fg = hint_green }, -- Used for "Hint" diagnostic virtual text
     DiagnosticVirtualTextError { fg = error_red }, -- Used for "Error" diagnostic virtual text
     DiagnosticVirtualTextWarn { fg = warning_yellow }, -- Used for "Warning" diagnostic virtual text
     DiagnosticVirtualTextInfo { fg = info_blue }, -- Used for "Information" diagnostic virtual text
     DiagnosticVirtualTextHint { fg = hint_green }, -- Used for "Hint" diagnostic virtual text
-
-    -- LspDiagnosticsUnderlineError         { }, -- Used to underline "Error" diagnostics
-    -- LspDiagnosticsUnderlineWarning       { }, -- Used to underline "Warning" diagnostics
-    -- LspDiagnosticsUnderlineInformation   { }, -- Used to underline "Information" diagnostics
-    -- LspDiagnosticsUnderlineHint          { }, -- Used to underline "Hint" diagnostics
-
-    -- LspDiagnosticsFloatingError          { }, -- Used to color "Error" diagnostic messages in diagnostics float
-    -- LspDiagnosticsFloatingWarning        { }, -- Used to color "Warning" diagnostic messages in diagnostics float
-    -- LspDiagnosticsFloatingInformation    { }, -- Used to color "Information" diagnostic messages in diagnostics float
-    -- LspDiagnosticsFloatingHint           { }, -- Used to color "Hint" diagnostic messages in diagnostics float
-
-    LspDiagnosticsSignError { fg = error_red, bg = background }, -- Used for "Error" signs in sign column
-    LspDiagnosticsSignWarning { fg = warning_yellow, bg = background }, -- Used for "Warning" signs in sign column
-    LspDiagnosticsSignInformation { fg = info_blue, bg = background }, -- Used for "Information" signs in sign column
-    LspDiagnosticsSignHint { fg = hint_green, bg = background }, -- Used for "Hint" signs in sign column
 
     DiagnosticSignError { fg = error_red, bg = background }, -- Used for "Error" signs in sign column
     DiagnosticSignWarn { fg = warning_yellow, bg = background }, -- Used for "Warning" signs in sign column
